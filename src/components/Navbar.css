@@ -71,18 +71,18 @@ a {
   /* background-color: yellow; */
 }
 
-.nav-link a{
+li.nav-link > a{
   font-size: 17px;
   color: rgb(223, 223, 223);
   padding: 0px 16px;
   /* background-color: pink; */
 }
 
-.nav-link:hover a{
+li.nav-link:hover > a{
   color: rgb(85, 124, 158);
 }
 
-div.nav-part-two{
+.nav-part-two{
   background-color: black;
   width: 30vw;
 
@@ -94,19 +94,20 @@ div.nav-part-two{
 .inputs{
   margin: 1vw;
   border-radius: 4px;
+  border: 1px solid black;
 }
 
 #input1{
   padding: 8px;
-  border: 1px solid black;
   
 }
 
 #input2{
-  font-size: 16px;
   padding: 5px;
-  border: 1px solid black;
+  font-size: 16px;
 }
+
+
 
 
 
