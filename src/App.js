@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <Navbar title="Textedit" />
-      <TextForm title="Enter text to analyze"/>
+      <TextForm title="Text Editor"/>
     </>
   );
 }
