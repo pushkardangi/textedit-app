@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function TextForm(props) {
-
   // function convert text to lowercase and
   // change the state to new text(lowercase)
   const handleLowercase = () => {
@@ -15,6 +14,11 @@ export default function TextForm(props) {
     console.log("Uppercase was clicked.");
     const newText = text.toUpperCase();
     setText(newText);
+  };
+
+  const handleClear = () => {
+    console.log("Clear was clicked.");
+    setText("");
   };
 
   // change in the state of textarea
@@ -60,6 +64,12 @@ export default function TextForm(props) {
             To Uppercase
           </button>
 
+          <button
+            type="button"
+            className="btn btn-primary mx-1 my-3"
+            onClick={handleClear}>
+            Clear
+          </button>
         </div>
       </main>
 
@@ -69,26 +79,29 @@ export default function TextForm(props) {
 
           <button type="button" className="btn btn-light m-1">
             Characters{" "}
-            <span className="badge text-bg-light fs-6">{text.length}</span>
+            <span className="mx-2 fs-6">{text.length}</span>
           </button>
 
           <button type="button" className="btn btn-light m-1">
             Words{" "}
-            <span className="badge text-bg-light fs-6">
+            <span className="mx-2 fs-6">
               {text.split(" ").length}
             </span>
           </button>
 
           <button type="button" className="btn btn-light m-1">
-            Minutes read {" "}
-            <span className="badge text-bg-light fs-6">
-              {text.split(" ").length*0.008}
+            Minutes read{" "}
+            <span className="mx-2 fs-6">
+              {text.split(" ").length * 0.008}
             </span>
           </button>
         </div>
 
         <div className="container my-4">
-          <h2>Preview</h2>
+          <div className="h2 d-inline">Preview</div>{" "}
+          <span className="mx-2 text-secondary">
+            type something above to see in preview
+          </span>
           <div className="preview mx-1 my-1">{text}</div>
         </div>
       </div>
