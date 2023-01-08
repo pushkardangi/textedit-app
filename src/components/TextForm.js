@@ -20,6 +20,13 @@ export default function TextForm(props) {
     console.log("Clear was clicked.");
     setText("");
   };
+  
+  const handleCopy = () => {
+    console.log("Copy was clicked.");
+    let text = document.getElementById("textBox")
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  }
 
   // change in the state of textarea
   const handleOnChange = (event) => {
@@ -41,7 +48,7 @@ export default function TextForm(props) {
               className="form-control"
               // trigger for function call
               onChange={handleOnChange}
-              id="exampleFormControlTextarea1"
+              id="textBox"
               placeholder="Start typing or paste text here"
               value={text}
               rows="15"
@@ -62,6 +69,14 @@ export default function TextForm(props) {
             // trigger for function call
             onClick={handleUppercase}>
             To Uppercase
+          </button>
+
+          <button
+            type="button"
+            className="btn btn-primary mx-1 my-3"
+            // trigger for function call
+            onClick={handleCopy}>
+            Copy Text
           </button>
 
           <button
