@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 
 export default function About() {
+
   const [Theme, setTheme] = useState({
     color: "black",
     backgroundColor: "white",
+    border: "1px solid black"
   });
 
   const [btnText, setBtnText] = useState("Enable dark mode");
@@ -34,15 +36,15 @@ export default function About() {
       <div className="container my-5" style={Theme}>
         <h2 className="text-center">About Us</h2>
 
-        <div class="card my-4" style={Theme}>
-          <h5 class="card-header">Featured</h5>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">
+        <div className="card my-4" style={Theme}>
+          <h5 className="card-header">Featured</h5>
+          <div className="card-body">
+            <h5 className="card-title">Special title treatment</h5>
+            <p className="card-text">
               With supporting text below as a natural lead-in to additional
               content.
             </p>
-            <a href="/" class="btn btn-primary">
+            <a href="/" className="btn btn-primary">
               Go somewhere
             </a>
           </div>
@@ -144,6 +146,7 @@ export default function About() {
           </div>
         </div>
       </div>
+
       <div className="container">
         <button
           type="button"
@@ -152,6 +155,7 @@ export default function About() {
         >
           {btnText}
         </button>
+
       </div>
     </>
   );
