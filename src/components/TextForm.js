@@ -10,27 +10,28 @@ export default function TextForm(props) {
   };
 
   const handleLowercase = () => {
-    console.log("Lower was clicked.");
     const newText = text.toLowerCase();
     setText(newText);
+    props.showAlert('success','converted to lowercase.')
   };
-
+  
   const handleUppercase = () => {
-    console.log("Uppercase was clicked.");
     const newText = text.toUpperCase();
     setText(newText);
+    props.showAlert('success','converted to uppercase.')
   };
-
+  
   const handleClear = () => {
-    console.log("Clear was clicked.");
     setText("");
+    props.showAlert('warning','text cleared.')
   };
   
   const handleCopy = () => {
-    console.log("Copy was clicked.");
     let text = document.getElementById("textBox")
     text.select();
     navigator.clipboard.writeText(text.value);
+
+    props.showAlert('success','text copied to clipboard.')
   }
 
   const modeTextColor = props.mode==='light'?'black':'white';
