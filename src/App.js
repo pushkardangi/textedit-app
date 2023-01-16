@@ -24,21 +24,33 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#303443';
       showAlert('secondary','Dark mode has been enabled.')
+      document.title = 'Textedit - Dark Mode';
+
+      // Dynamic Title
+      // setInterval(() => {
+      //   document.title = 'Textedit - Amazing';
+      // }, 2000);
+      // setInterval(() => {
+      //   document.title = 'Textedit - Install Now!';
+      // }, 1500);
     }
     else if(modeColor === 'light'){
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert('secondary','Light mode has been enabled.')
+      document.title = 'Textedit - Light Mode';
     }
     else if(modeColor === 'pink'){
       setMode('pink');
       document.body.style.backgroundColor = '#ffdbe5';
       showAlert('secondary','Pink mode has been enabled.')
+      document.title = 'Textedit - Pink Mode';
     }
     else if(modeColor === 'navy'){
       setMode('navy');
       document.body.style.backgroundColor = '#20366b';
       showAlert('secondary','Navy mode has been enabled.')
+      document.title = 'Textedit - Navy Mode';
     }
   }
 
