@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import './style.css';
+
 export default function TextForm(props) {
 
   const [text, setText] = useState("");
@@ -34,15 +36,40 @@ export default function TextForm(props) {
     props.showAlert('success','text copied to clipboard.')
   }
 
-  const modeTextColor = props.mode==='light'?'black':'white';
-  const modeBgColor = props.mode==='light'?'white':'#303443';
+  // const modeTextColor = props.mode==='light'?'black':'white';
+  // const modeBgColor = props.mode==='light'?'white':'#303443';
+
+  let modeTextColor;
+  let modeBgColor;
+  let btn;
+
+  if (props.mode === "light") {
+    modeBgColor = "white";
+    modeTextColor = "black";
+    btn ='secondary';
+  } 
+  else if (props.mode === "dark") {
+    modeBgColor = "#303443";
+    modeTextColor = "white";
+    btn = 'light';
+  }
+  else if (props.mode === "pink") {
+    modeBgColor = "#ffdbe5";
+    modeTextColor = "black";
+    btn = 'light';
+  }
+  else if (props.mode === "navy") {
+    modeBgColor = "#192a52";
+    modeTextColor = "white";
+    btn = 'light';
+  }
 
   return (
     <>
 
       <div className="container">
 
-        <h1 className={`m-5 text-center text-${modeTextColor}`}>{props.title}</h1>
+        <h1 className={`m-4 text-center text-${modeTextColor}`}>{props.title}</h1>
 
         {/* Textarea */}
         <div className="form-group">
@@ -60,72 +87,72 @@ export default function TextForm(props) {
         {/* Function Buttons */}
         <button
           type="button"
-          className="btn btn-primary mx-1 my-3"
+          className={`btn btn-${btn} mx-1 mt-3`}
           onClick={handleLowercase}>
           To Lowercase
         </button>
 
         <button
           type="button"
-          className="btn btn-primary mx-1 my-3"
+          className={`btn btn-${btn} mx-1 mt-3`}
           onClick={handleUppercase}>
           To Uppercase
         </button>
 
         <button
           type="button"
-          className="btn btn-primary mx-1 my-3"
+          className={`btn btn-${btn} mx-1 mt-3`}
           onClick={handleCopy}>
           Copy Text
         </button>
 
         <button
           type="button"
-          className="btn btn-primary mx-1 my-3"
+          className={`btn btn-${btn} mx-1 mt-3`}
           onClick={handleClear}>
           Clear
         </button>
 
       </div>
 
-      <div className="container">
+      
 
         {/* Text Summary */}
         <div className="container my-4">
-          <h2 className={`text-${modeTextColor}`}>Text summary</h2>
+          <h2 className={`mx-2 text-${modeTextColor}`}>Text summary</h2>
 
           <button type="button" className="btn btn-light m-1">
-            Characters{" "}
+            Characters
             <span className="mx-2 fs-6">{text.length}</span>
           </button>
 
           <button type="button" className="btn btn-light m-1">
-            Words{" "}
+            Words
             <span className="mx-2 fs-6">
-              {text.split(" ").length}
+              {text.split(' ').filter(function(n) { return n !== '' }).length}
             </span>
           </button>
 
           <button type="button" className="btn btn-light m-1">
-            Minutes read{" "}
+            Minutes read
             <span className="mx-2 fs-6">
-              {text.split(" ").length * 0.008}
+              {(text.split(' ').filter(function(n) { return n !== '' }).length) * 0.008}
             </span>
           </button>
         </div>
 
         {/* Text Preview */}
-        <div className="container my-4">
+        <div className="container  my-4">
 
-          <div className={`h2 d-inline text-${modeTextColor}`}>Preview</div>
+          <div className={`mx-2 h2 d-inline text-${modeTextColor}`}>Preview</div>
 
-          <div className={`preview mx-1 my-1 text-${text===''?'secondary':modeTextColor}`}>
+          <div className={`preview mx-2 my-1 text-${text===''?'secondary':modeTextColor}`}>
           {text === ""
               ? "type something in text box above to see in preview"
               : text}
           </div>
           
-        </div>
+    
 
       </div>
     </>
@@ -133,9 +160,9 @@ export default function TextForm(props) {
 }
 
 TextForm.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 TextForm.defaultProps = {
-  title: "set title"
+  title: "set title",
 };
