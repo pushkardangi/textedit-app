@@ -69,10 +69,10 @@ export default function TextForm(props) {
 
       <div className="container">
 
-        <h1 className={`m-4 text-center text-${modeTextColor}`}>{props.title}</h1>
+        {/* <h1 className={`m-4 text-center text-${modeTextColor}`}>{props.title}</h1> */}
 
         {/* Textarea */}
-        <div className="form-group">
+        <div className="form-group my-2">
           <textarea
             className={`form-control text-${modeTextColor}`}
             onChange={handleOnChange}
@@ -87,28 +87,28 @@ export default function TextForm(props) {
         {/* Function Buttons */}
         <button
           type="button"
-          className={`btn btn-${btn} mx-1 mt-3`}
+          className={`btn btn-${btn} m-1`}
           onClick={handleLowercase}>
           To Lowercase
         </button>
 
         <button
           type="button"
-          className={`btn btn-${btn} mx-1 mt-3`}
+          className={`btn btn-${btn} m-1`}
           onClick={handleUppercase}>
           To Uppercase
         </button>
 
         <button
           type="button"
-          className={`btn btn-${btn} mx-1 mt-3`}
+          className={`btn btn-${btn} m-1`}
           onClick={handleCopy}>
           Copy Text
         </button>
 
         <button
           type="button"
-          className={`btn btn-${btn} mx-1 mt-3`}
+          className={`btn btn-${btn} m-1`}
           onClick={handleClear}>
           Clear
         </button>
@@ -129,14 +129,14 @@ export default function TextForm(props) {
           <button type="button" className="btn btn-light m-1">
             Words
             <span className="mx-2 fs-6">
-              {text.split(' ').filter(function(n) { return n !== '' }).length}
+              {text.split(' ').filter((n)=>{ return n !== '' }).length}
             </span>
           </button>
 
           <button type="button" className="btn btn-light m-1">
             Minutes read
             <span className="mx-2 fs-6">
-              {(text.split(' ').filter(function(n) { return n !== '' }).length) * 0.008}
+              {((text.split(' ').filter((n)=>{ return n !== '' }).length) * 0.008).toFixed(2)}
             </span>
           </button>
         </div>

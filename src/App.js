@@ -25,14 +25,6 @@ function App() {
       document.body.style.backgroundColor = '#303443';
       showAlert('secondary','Dark mode has been enabled.')
       document.title = 'Textedit - Dark Mode';
-
-      // Dynamic Title
-      // setInterval(() => {
-      //   document.title = 'Textedit - Amazing';
-      // }, 2000);
-      // setInterval(() => {
-      //   document.title = 'Textedit - Install Now!';
-      // }, 1500);
     }
     else if(modeColor === 'light'){
       setMode('light');
