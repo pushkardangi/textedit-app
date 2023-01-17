@@ -1,7 +1,10 @@
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
+import About from "./components/About";
 import React, { useState } from 'react'; // imrs
+
+import { Route, Routes} from "react-router-dom";
 
 
 function App() {
@@ -50,7 +53,12 @@ function App() {
     <>
       <Navbar title="Textedit" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
-      <TextForm title="Text Editor" mode={mode} showAlert={showAlert}/>
+      
+      <Routes>
+        <Route exact path="/" element={<TextForm title="Text Editor" mode={mode} showAlert={showAlert}/>} />
+        <Route exact path="/about" element={<About />} />
+      </Routes>
+
     </>
   );
 }

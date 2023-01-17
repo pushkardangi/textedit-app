@@ -14,18 +14,18 @@ export default function TextForm(props) {
   const handleLowercase = () => {
     const newText = text.toLowerCase();
     setText(newText);
-    props.showAlert('success','converted to lowercase.')
+    props.showAlert('secondary','Converted to lowercase.')
   };
   
   const handleUppercase = () => {
     const newText = text.toUpperCase();
     setText(newText);
-    props.showAlert('success','converted to uppercase.')
+    props.showAlert('secondary','Converted to uppercase.')
   };
   
   const handleClear = () => {
     setText("");
-    props.showAlert('warning','text cleared.')
+    props.showAlert('secondary','Text cleared.')
   };
   
   const handleCopy = () => {
@@ -33,7 +33,7 @@ export default function TextForm(props) {
     text.select();
     navigator.clipboard.writeText(text.value);
 
-    props.showAlert('success','text copied to clipboard.')
+    props.showAlert('secondary','Text copied to clipboard.')
   }
 
   // const modeTextColor = props.mode==='light'?'black':'white';
@@ -115,8 +115,6 @@ export default function TextForm(props) {
 
       </div>
 
-      
-
         {/* Text Summary */}
         <div className="container my-4">
           <h2 className={`mx-2 text-${modeTextColor}`}>Text summary</h2>
@@ -152,8 +150,6 @@ export default function TextForm(props) {
               : text}
           </div>
           
-    
-
       </div>
     </>
   );
