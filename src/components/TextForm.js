@@ -73,10 +73,7 @@ export default function TextForm(props) {
 
   return (
     <>
-
       <div className="container">
-
-        {/* <h1 className={`m-4 text-center text-${modeTextColor}`}>{props.title}</h1> */}
 
         {/* Textarea */}
         <div className="form-group my-2">
@@ -136,6 +133,7 @@ export default function TextForm(props) {
 
         {/* Text Summary */}
         <div className="container my-4">
+
           <h2 className={`mx-2 text-${modeTextColor}`}>Text summary</h2>
 
           <button disabled='disabled' type="button" className="btn btn-light m-1">
@@ -156,6 +154,7 @@ export default function TextForm(props) {
               {((text.split(' ').filter((n)=>{ return n !== '' }).length) * 0.008).toFixed(2)}
             </span>
           </button>
+          
         </div>
 
         {/* Text Preview */}
