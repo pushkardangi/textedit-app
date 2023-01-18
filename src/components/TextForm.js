@@ -14,13 +14,19 @@ export default function TextForm(props) {
   const handleLowercase = () => {
     const newText = text.toLowerCase();
     setText(newText);
-    props.showAlert('secondary','Converted to lowercase.')
+    props.showAlert('secondary','Converted to Lowercase.')
   };
   
   const handleUppercase = () => {
     const newText = text.toUpperCase();
     setText(newText);
-    props.showAlert('secondary','Converted to uppercase.')
+    props.showAlert('secondary','Converted to Uppercase.')
+  };
+
+  const handleExtraSpaces = () => {
+    const newText = text.split(' ').filter(word => word).join(' ');
+    setText(newText);
+    props.showAlert('secondary','Removed extra spaces.')
   };
   
   const handleClear = () => {
@@ -30,8 +36,9 @@ export default function TextForm(props) {
   
   const handleCopy = () => {
     let text = document.getElementById("textBox")
-    text.select();
+    // text.select();
     navigator.clipboard.writeText(text.value);
+    // document.getSelection().removeAllRanges();
 
     props.showAlert('secondary','Text copied to clipboard.')
   }
@@ -87,6 +94,7 @@ export default function TextForm(props) {
         {/* Function Buttons */}
         <button
           type="button"
+          disabled={text.length===0}
           className={`btn btn-${btn} m-1`}
           onClick={handleLowercase}>
           To Lowercase
@@ -94,6 +102,7 @@ export default function TextForm(props) {
 
         <button
           type="button"
+          disabled={text.length===0}
           className={`btn btn-${btn} m-1`}
           onClick={handleUppercase}>
           To Uppercase
@@ -101,6 +110,15 @@ export default function TextForm(props) {
 
         <button
           type="button"
+          disabled={text.length===0}
+          className={`btn btn-${btn} m-1`}
+          onClick={handleExtraSpaces}>
+          Remove Extra Spaces
+        </button>
+
+        <button
+          type="button"
+          disabled={text.length===0}
           className={`btn btn-${btn} m-1`}
           onClick={handleCopy}>
           Copy Text
@@ -108,6 +126,7 @@ export default function TextForm(props) {
 
         <button
           type="button"
+          disabled={text.length===0}
           className={`btn btn-${btn} m-1`}
           onClick={handleClear}>
           Clear
@@ -119,19 +138,19 @@ export default function TextForm(props) {
         <div className="container my-4">
           <h2 className={`mx-2 text-${modeTextColor}`}>Text summary</h2>
 
-          <button type="button" className="btn btn-light m-1">
+          <button disabled='disabled' type="button" className="btn btn-light m-1">
             Characters
             <span className="mx-2 fs-6">{text.length}</span>
           </button>
 
-          <button type="button" className="btn btn-light m-1">
+          <button disabled='disabled' type="button" className="btn btn-light m-1">
             Words
             <span className="mx-2 fs-6">
-              {text.split(' ').filter((n)=>{ return n !== '' }).length}
+              {text.split(/\s+/).filter((n)=>{ return n !== '' }).length}
             </span>
           </button>
 
-          <button type="button" className="btn btn-light m-1">
+          <button disabled='disabled' type="button" className="btn btn-light m-1">
             Minutes read
             <span className="mx-2 fs-6">
               {((text.split(' ').filter((n)=>{ return n !== '' }).length) * 0.008).toFixed(2)}
@@ -146,7 +165,7 @@ export default function TextForm(props) {
 
           <div className={`preview mx-2 my-1 text-${text===''?'secondary':modeTextColor}`}>
           {text === ""
-              ? "type something in text box above to see in preview"
+              ? "Nothing to preview!"
               : text}
           </div>
           

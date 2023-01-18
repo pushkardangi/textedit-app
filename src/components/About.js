@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 export default function About() {
-
+  /*
   const [Theme, setTheme] = useState({
     color: "black",
     backgroundColor: "white",
-    border: "1px solid black"
+    // border: "1px solid black"
   });
 
   const [btnText, setBtnText] = useState("Enable dark mode");
@@ -31,26 +31,16 @@ export default function About() {
       );
     }
   }
+  */
   return (
     <>
-      <div className="container my-5" style={Theme}>
+      <div className="container my-5">
         <h2 className="text-center">About Us</h2>
 
-        <div className="card my-4" style={Theme}>
-          <h5 className="card-header">Featured</h5>
-          <div className="card-body">
-            <h5 className="card-title">Special title treatment</h5>
-            <p className="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <a href="/" className="btn btn-primary">
-              Go somewhere
-            </a>
-          </div>
-        </div>
-
-        <div className="accordion accordion-flush my-4" id="accordionFlushExample">
+        <div
+          className="accordion accordion-flush my-4"
+          id="accordionFlushExample"
+        >
           <div className="accordion-item">
             <h2 className="accordion-header" id="flush-headingOne">
               <button
@@ -60,9 +50,8 @@ export default function About() {
                 data-bs-target="#flush-collapseOne"
                 aria-expanded="false"
                 aria-controls="flush-collapseOne"
-                style={Theme}
               >
-                Accordion Item #1
+                Analyze Your text
               </button>
             </h2>
             <div
@@ -70,20 +59,15 @@ export default function About() {
               className="accordion-collapse collapse"
               aria-labelledby="flush-headingOne"
               data-bs-parent="#accordionFlushExample"
-              style={Theme}
             >
               <div className="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                first item's accordion body. Placeholder content for this
-                accordion, which is intended to demonstrate the{" "}
-                <code>.accordion-flush</code> class. This is the first item's
-                accordion body. Placeholder content for this accordion, which is
-                intended to demonstrate the <code>.accordion-flush</code> class.
-                This is the first item's accordion body.
+                Textedit gives you a way to analyze your text quickly and
+                efficiently. Be it word count, character count or calculating
+                reading time.
               </div>
             </div>
           </div>
+
           <div className="accordion-item">
             <h2 className="accordion-header" id="flush-headingTwo">
               <button
@@ -93,9 +77,8 @@ export default function About() {
                 data-bs-target="#flush-collapseTwo"
                 aria-expanded="false"
                 aria-controls="flush-collapseTwo"
-                style={Theme}
               >
-                Accordion Item #2
+                Free to use
               </button>
             </h2>
             <div
@@ -103,16 +86,16 @@ export default function About() {
               className="accordion-collapse collapse"
               aria-labelledby="flush-headingTwo"
               data-bs-parent="#accordionFlushExample"
-              style={Theme}
             >
               <div className="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                second item's accordion body. Let's imagine this being filled
-                with some actual content.
+                Textedit is a free character counter tool that provides instant
+                character count & word count statistics for a given text.
+                Textedit reports the number of words and characters. Thus it is
+                suitable for writing text with word/ character limit.
               </div>
             </div>
           </div>
+
           <div className="accordion-item">
             <h2 className="accordion-header" id="flush-headingThree">
               <button
@@ -122,9 +105,8 @@ export default function About() {
                 data-bs-target="#flush-collapseThree"
                 aria-expanded="false"
                 aria-controls="flush-collapseThree"
-                style={Theme}
               >
-                Accordion Item #3
+                Browser Compatible
               </button>
             </h2>
             <div
@@ -132,30 +114,16 @@ export default function About() {
               className="accordion-collapse collapse"
               aria-labelledby="flush-headingThree"
               data-bs-parent="#accordionFlushExample"
-              style={Theme}
             >
               <div className="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                third item's accordion body. Nothing more exciting happening
-                here in terms of content, but just filling up the space to make
-                it look, at least at first glance, a bit more representative of
-                how this would look in a real-world application.
+                This word counter software works in any web browsers such as
+                Chrome, Firefox, Internet Explorer, Safari, Opera. It suits to
+                count characters in facebook, blog, books, excel document, pdf
+                document, essays, etc.
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="container">
-        <button
-          type="button"
-          className="btn btn-outline-dark"
-          onClick={toggleTheme}
-        >
-          {btnText}
-        </button>
-
       </div>
     </>
   );
