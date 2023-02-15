@@ -28,6 +28,52 @@ export default function TextForm(props) {
     setText(newText);
     props.showAlert('secondary','Removed extra spaces.')
   };
+
+  const handleCapitalizeSentences = () => {
+    let newText = "";
+    let myArray = text.split(".");
+
+
+    for(let i = 0; i < myArray.length; i++)
+    {
+
+      // find the first alphabet of the sentence and capitalize it
+      for(let j = 0; j < 100; j++){
+
+        // if the first character of the sentence is num, no updation required
+        if (Number.isInteger(parseInt(myArray[i].charAt(j))) === true)
+        {
+          // if any sentence has "?" at the end, don't add "."
+          if(myArray[i].charAt((myArray[i].length) - 1) === "?")
+          {
+            newText += myArray[i];
+          }
+          else{
+            newText += myArray[i] + ".";
+          }
+          break;
+        }
+        
+        // if the first character of the sentence is alphabet, updation required
+        if(myArray[i].charAt(j).toLowerCase() !== myArray[i].charAt(j).toUpperCase())
+        {
+
+          if(myArray[i].charAt((myArray[i].length) - 1) === "?")
+          {
+            newText += myArray[i].replace(myArray[i].charAt(j),myArray[i].charAt(j).toUpperCase());
+          }
+          else{
+            newText += myArray[i].replace(myArray[i].charAt(j),myArray[i].charAt(j).toUpperCase()) + ".";
+          }
+          break;
+        }
+      }
+
+    }
+        
+    setText(newText);
+    props.showAlert('secondary','All sentences Capitalized.')
+  };
   
   const handleClear = () => {
     setText("");
@@ -111,6 +157,14 @@ export default function TextForm(props) {
           className={`btn btn-${btn} m-1`}
           onClick={handleExtraSpaces}>
           Remove Extra Spaces
+        </button>
+
+        <button
+          type="button"
+          disabled={text.length===0}
+          className={`btn btn-${btn} m-1`}
+          onClick={handleCapitalizeSentences}>
+          Capitalize Sentences
         </button>
 
         <button
