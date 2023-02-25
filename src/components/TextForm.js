@@ -24,7 +24,14 @@ export default function TextForm(props) {
   };
 
   const handleExtraSpaces = () => {
-    const newText = text.split(' ').filter(word => word).join(' ');
+    // remove extra spaces
+    let newText = text.split(' ').filter(word => word).join(' ');
+    
+    // remove space between word and "." or "?" or "!" (sentence termination)
+    newText = newText.replace(/\s\./g,".");
+    newText = newText.replace(/\s\?/g,"?");
+    newText = newText.replace(/\s!/g,"!");
+
     setText(newText);
     props.showAlert('secondary','Removed extra spaces.')
   };
