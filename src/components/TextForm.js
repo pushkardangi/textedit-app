@@ -36,6 +36,18 @@ export default function TextForm(props) {
     props.showAlert('secondary','Removed extra spaces.')
   };
 
+  const handleCapitalizeWords = () => {
+    let newText = "";
+    let myArray = text.split(" ");
+
+    for(let i = 0; i < myArray.length; i++){
+      newText += myArray[i].charAt(0).toUpperCase() + myArray[i].substring(1) + " ";
+    }
+
+    setText(newText);
+    props.showAlert('secondary','All words Capitalized.')
+  };
+
   const handleCapitalizeSentences = () => {
     let newText = "";
     let myArray = text.split(".");
@@ -164,6 +176,14 @@ export default function TextForm(props) {
           className={`btn btn-${btn} m-1`}
           onClick={handleExtraSpaces}>
           Remove Extra Spaces
+        </button>
+
+        <button
+          type="button"
+          disabled={text.length===0}
+          className={`btn btn-${btn} m-1`}
+          onClick={handleCapitalizeWords}>
+          Capitalize Words
         </button>
 
         <button
