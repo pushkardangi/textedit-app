@@ -29,11 +29,13 @@ This word counter software works in any web browsers such as Chrome, Firefox, In
 ### After cloning the repo, run
 
 Install node modules
+
 ```npm
 npm install
 ```
 
 Start development server
+
 ```npm
 npm start
 ```
