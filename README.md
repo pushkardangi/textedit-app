@@ -1,6 +1,7 @@
 # Textedit - Text Editor and Ananlyser
 
 A simple but useful text editor.
+![App Link](https://pushkardangi.github.io/textedit-app/)
 
 ## Development tools
 
