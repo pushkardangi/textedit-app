@@ -40,10 +40,19 @@ export default function TextForm(props) {
     let newText = "";
     let myArray = text.split(" ");
 
-    for(let i = 0; i < myArray.length; i++){
-      newText += myArray[i].charAt(0).toUpperCase() + myArray[i].substring(1) + " ";
-    }
+    for (let i = 0; i < myArray.length; i++) {
 
+      for (let j = 0; j < myArray[i].length; j++) {
+  
+        if (myArray[i].charAt(j).toLowerCase() !== myArray[i].charAt(j).toUpperCase()){
+  
+          newText += myArray[i].replace(myArray[i].charAt(j),myArray[i].charAt(j).toUpperCase()) + " ";
+          break;
+        }
+  
+      }
+    }
+  
     setText(newText);
     props.showAlert('secondary','All words Capitalized.')
   };
