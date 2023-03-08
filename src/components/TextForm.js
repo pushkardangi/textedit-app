@@ -59,7 +59,7 @@ export default function TextForm(props) {
 
   const handleCapitalizeSentences = () => {
     let newText = "";
-    let myArray = text.split(".");
+    let myArray = text.split(/(?<=[.?!])/);
 
 
     for(let i = 0; i < myArray.length; i++)
@@ -71,35 +71,36 @@ export default function TextForm(props) {
         // if the first character of the sentence is num, no updation required
         if (Number.isInteger(parseInt(myArray[i].charAt(j))) === true)
         {
-          // if any sentence has "?" at the end, don't add "."
-          if(myArray[i].charAt((myArray[i].length) - 1) === "?")
-          {
-            newText += myArray[i];
-          }
-          else{
-            newText += myArray[i] + ".";
-          }
+          newText += myArray[i];
           break;
         }
         
         // if the first character of the sentence is alphabet, updation required
         if(myArray[i].charAt(j).toLowerCase() !== myArray[i].charAt(j).toUpperCase())
         {
-
-          if(myArray[i].charAt((myArray[i].length) - 1) === "?")
-          {
-            newText += myArray[i].replace(myArray[i].charAt(j),myArray[i].charAt(j).toUpperCase());
-          }
-          else{
-            newText += myArray[i].replace(myArray[i].charAt(j),myArray[i].charAt(j).toUpperCase()) + ".";
-          }
+          newText += myArray[i].replace(myArray[i].charAt(j),myArray[i].charAt(j).toUpperCase());
           break;
         }
       }
 
     }
+
+    let newText2 = "";
+    let myArray2 = newText.split(" ");
+
+    for (let i = 0; i < myArray2.length; i++) {
+
+      console.log(myArray2[i])
+
+      if (myArray2[i] === "i"){
+        newText2 += "I ";
+      }
+      else{
+        newText2 += myArray2[i] + " ";
+      }
+    }
         
-    setText(newText);
+    setText(newText2);
     props.showAlert('secondary','All sentences Capitalized.')
   };
   
