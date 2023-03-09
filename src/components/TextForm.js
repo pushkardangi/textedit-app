@@ -38,22 +38,27 @@ export default function TextForm(props) {
 
   const handleCapitalizeWords = () => {
     let newText = "";
-    let myArray = text.split(" ");
+    let myArray = text.trim().split(" ");
 
-    for (let i = 0; i < myArray.length; i++) {
-
-      for (let j = 0; j < myArray[i].length; j++) {
-  
-        if (myArray[i].charAt(j).toLowerCase() !== myArray[i].charAt(j).toUpperCase()){
-  
-          newText += myArray[i].replace(myArray[i].charAt(j),myArray[i].charAt(j).toUpperCase()) + " ";
-          break;
-        }
-  
+    for (let i = 0; i < myArray.length; i++)
+    { 
+      console.log(myArray[i])
+      if(myArray[i].toLowerCase() !== myArray[i].toUpperCase())
+      {
+        newText += myArray[i].replace(myArray[i].charAt(0),myArray[i].charAt(0).toUpperCase()) + " ";
+      }
+      else
+      {
+        newText += myArray[i] + " ";
       }
     }
+
+    // remove space between word and "." or "?" or "!" (sentence termination)
+    newText = newText.replace(/\s\./g,".");
+    newText = newText.replace(/\s\?/g,"?");
+    newText = newText.replace(/\s!/g,"!");
   
-    setText(newText);
+    setText(newText.trim());
     props.showAlert('secondary','All words Capitalized.')
   };
 
