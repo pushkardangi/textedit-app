@@ -169,7 +169,7 @@ export default function TextForm(props) {
           disabled={text.length===0}
           className={`btn btn-${btn} m-1`}
           onClick={handleLowercase}>
-          To Lowercase
+          lower case
         </button>
 
         <button
@@ -177,7 +177,7 @@ export default function TextForm(props) {
           disabled={text.length===0}
           className={`btn btn-${btn} m-1`}
           onClick={handleUppercase}>
-          To Uppercase
+          UPPER CASE
         </button>
 
         <button
@@ -193,7 +193,7 @@ export default function TextForm(props) {
           disabled={text.length===0}
           className={`btn btn-${btn} m-1`}
           onClick={handleCapitalizeWords}>
-          Capitalize Words
+          Capitalize Case
         </button>
 
         <button
@@ -201,7 +201,7 @@ export default function TextForm(props) {
           disabled={text.length===0}
           className={`btn btn-${btn} m-1`}
           onClick={handleCapitalizeSentences}>
-          Capitalize Sentences
+          Sentence case
         </button>
 
         <button
