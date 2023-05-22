@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-# Textedit <a href="https://pushkardangi.github.io/textedit-app/"> ![Live Link](https://img.shields.io/badge/live_link-1e394e?style=for-the-badge&logo=&logoColor=white) </a>
+# Textedit [![Live Link](https://img.shields.io/badge/live_link-1e394e?style=for-the-badge&logo=&logoColor=white)](https://pushkardangi.github.io/textedit-app/)
 
 A text editor and text analyzer.
 
