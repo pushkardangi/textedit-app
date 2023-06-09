@@ -9,9 +9,8 @@ function App() {
   const[mode, setMode] = useState('light');
   const[alert, setAlert] = useState(null);
 
-  const showAlert = (type, message) => {
+  const showAlert = (message) => {
     setAlert({
-      type: type,
       msg: message
     })
     setTimeout(() => {
@@ -23,22 +22,22 @@ function App() {
     if(modeColor === 'dark'){
       setMode('dark');
       document.body.style.backgroundColor = '#303443';
-      showAlert('secondary','Dark mode has been enabled.')
+      showAlert('Dark mode has been enabled.')
     }
     else if(modeColor === 'light'){
       setMode('light');
       document.body.style.backgroundColor = 'white';
-      showAlert('secondary','Light mode has been enabled.')
+      showAlert('Light mode has been enabled.')
     }
     else if(modeColor === 'pink'){
       setMode('pink');
       document.body.style.backgroundColor = '#ffdbe5';
-      showAlert('secondary','Pink mode has been enabled.')
+      showAlert('Pink mode has been enabled.')
     }
     else if(modeColor === 'navy'){
       setMode('navy');
       document.body.style.backgroundColor = '#20366b';
-      showAlert('secondary','Navy mode has been enabled.')
+      showAlert('Navy mode has been enabled.')
     }
   }
 

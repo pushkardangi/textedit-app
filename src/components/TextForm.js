@@ -14,13 +14,13 @@ export default function TextForm(props) {
   const handleLowercase = () => {
     const newText = text.toLowerCase();
     setText(newText);
-    props.showAlert('secondary','Converted to Lowercase.')
+    props.showAlert('Converted to Lowercase.')
   };
   
   const handleUppercase = () => {
     const newText = text.toUpperCase();
     setText(newText);
-    props.showAlert('secondary','Converted to Uppercase.')
+    props.showAlert('Converted to Uppercase.')
   };
 
   const handleExtraSpaces = () => {
@@ -33,7 +33,7 @@ export default function TextForm(props) {
     newText = newText.replace(/\s!/g,"!");
 
     setText(newText);
-    props.showAlert('secondary','Removed extra spaces.')
+    props.showAlert('Removed extra spaces.')
   };
 
   const handleCapitalizeWords = () => {
@@ -58,7 +58,7 @@ export default function TextForm(props) {
     newText = newText.replace(/\s!/g,"!");
   
     setText(newText.trim());
-    props.showAlert('secondary','All words Capitalized.')
+    props.showAlert('All words Capitalized.')
   };
 
   const handleCapitalizeSentences = () => {
@@ -102,12 +102,12 @@ export default function TextForm(props) {
     }
         
     setText(newText2);
-    props.showAlert('secondary','All sentences Capitalized.')
+    props.showAlert('All sentences Capitalized.')
   };
   
   const handleClear = () => {
     setText("");
-    props.showAlert('secondary','Text cleared.')
+    props.showAlert('Text cleared.')
   };
   
   const handleCopy = () => {
@@ -116,7 +116,7 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(text.value);
     // document.getSelection().removeAllRanges();
 
-    props.showAlert('secondary','Text copied to clipboard.')
+    props.showAlert('Text copied to clipboard.')
   }
 
   // const modeTextColor = props.mode==='light'?'black':'white';
