@@ -42,7 +42,6 @@ export default function TextForm(props) {
 
     for (let i = 0; i < myArray.length; i++)
     { 
-      console.log(myArray[i])
       if(myArray[i].toLowerCase() !== myArray[i].toUpperCase())
       {
         newText += myArray[i].replace(myArray[i].charAt(0),myArray[i].charAt(0).toUpperCase()) + " ";
@@ -69,10 +68,9 @@ export default function TextForm(props) {
 
     for(let i = 0; i < myArray.length; i++)
     {
-
       // find the first alphabet of the sentence and capitalize it
-      for(let j = 0; j < 100; j++){
-
+      for(let j = 0; j < 100; j++)
+      {
         // if the first character of the sentence is num, no updation required
         if (Number.isInteger(parseInt(myArray[i].charAt(j))) === true)
         {
@@ -93,10 +91,8 @@ export default function TextForm(props) {
     let newText2 = "";
     let myArray2 = newText.split(" ");
 
-    for (let i = 0; i < myArray2.length; i++) {
-
-      console.log(myArray2[i])
-
+    for (let i = 0; i < myArray2.length; i++)
+    {
       if (myArray2[i] === "i"){
         newText2 += "I ";
       }
