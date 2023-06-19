@@ -62,47 +62,29 @@ export default function TextForm(props) {
   };
 
   const handleCapitalizeSentences = () => {
-    let newText = "";
-    let myArray = text.split(/(?<=[.?!])/);
+    
+    let char;
+    let sen = text.split(/(?<=[.?!])/);
 
-
-    for(let i = 0; i < myArray.length; i++)
+    for (let i = 0; i < sen.length; i++)
     {
-      // find the first alphabet of the sentence and capitalize it
-      for(let j = 0; j < 100; j++)
+      for (let j = 0; j < sen[i].length; j++)
       {
-        // if the first character of the sentence is num, no updation required
-        if (Number.isInteger(parseInt(myArray[i].charAt(j))) === true)
+        char = sen[i][j].charCodeAt(0);
+        if (( char > 47 && char < 58) || (char > 64 && char < 91))
         {
-          newText += myArray[i];
-          break;
+            break;
         }
-        
-        // if the first character of the sentence is alphabet, updation required
-        if(myArray[i].charAt(j).toLowerCase() !== myArray[i].charAt(j).toUpperCase())
+        else if (char > 96 && char < 123)
         {
-          newText += myArray[i].replace(myArray[i].charAt(j),myArray[i].charAt(j).toUpperCase());
-          break;
+            sen[i] = sen[i].substring(0, j) + sen[i][j].toUpperCase() + sen[i].substring(j + 1);
+            break;
         }
       }
-
     }
 
-    let newText2 = "";
-    let myArray2 = newText.split(" ");
-
-    for (let i = 0; i < myArray2.length; i++)
-    {
-      if (myArray2[i] === "i"){
-        newText2 += "I ";
-      }
-      else{
-        newText2 += myArray2[i] + " ";
-      }
-    }
-        
-    setText(newText2);
-    props.showAlert('All sentences Capitalized.')
+    setText(sen.join(''));
+    props.showAlert('Sentences Capitalized.')
   };
   
   const handleClear = () => {
