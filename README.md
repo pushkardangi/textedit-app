@@ -58,4 +58,9 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## Contributors
+
+[![Mokesh Nagpal](https://img.shields.io/badge/mokesh_nagpal-323330?style=for-the-badge)](https://github.com/mokeshnagpal)
+[![Dev Anand](https://img.shields.io/badge/dev_anand-20232A?style=for-the-badge)](https://github.com/dev3058)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
